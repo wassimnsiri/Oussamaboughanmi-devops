@@ -12,16 +12,12 @@ WORKDIR /app
 
 # Assumes that the jar file is located in the same directory as the Dockerfile
 
-COPY tp-foyer-*.jar /app/tp-foyer.jar
-
-
-
 # Expose the port that your Spring Boot app will run on
 
 EXPOSE 8089
 
-
+ADD target/tp-foyer-5.0.0.jar.jar tp-foyer-5.0.0.jar
 
 # Define the command to run the JAR file
 
-ENTRYPOINT ["java", "-jar", "/app/tp-foyer.jar"]
+ENTRYPOINT ["java", "-jar", "/tp-foyer-5.0.0.jar"]
