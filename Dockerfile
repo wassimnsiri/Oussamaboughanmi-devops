@@ -16,7 +16,7 @@ WORKDIR /app
 
 EXPOSE 8089
 
-ADD target/tp-foyer-5.0.0.jar.jar tp-foyer-5.0.0.jar
+ADD target/tp-foyer-5.0.0.jar tp-foyer-5.0.0.jar
 
 # Define the command to run the JAR file
 
