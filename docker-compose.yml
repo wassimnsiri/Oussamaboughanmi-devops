@@ -30,6 +30,7 @@ services:
       }'
     volumes:
       - ./wait-for-mysql.sh:/wait-for-mysql.sh  # Ajoute le script d'attente
+    working_dir: /  # Définit le répertoire de travail à la racine
     entrypoint: ["sh", "-c", "./wait-for-mysql.sh && java -jar /tp-foyer-5.0.0.jar"]
     stdin_open: true
     tty: true
