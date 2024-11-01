@@ -5,7 +5,7 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     environment:
-      - MYSQL_ROOT_PASSWORD=""  # Mot de passe vide
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=db  # Nom de la base de données
     ports:
       - 3306:3306  # Expose le port MySQL
@@ -30,6 +30,7 @@ services:
       }'
     volumes:
       - ./wait-for-mysql.sh:/wait-for-mysql.sh  # Ajoute le script d'attente
+    working_dir: /  # Définit le répertoire de travail à la racine
     entrypoint: ["sh", "-c", "./wait-for-mysql.sh && java -jar /tp-foyer-5.0.0.jar"]
     stdin_open: true
     tty: true
