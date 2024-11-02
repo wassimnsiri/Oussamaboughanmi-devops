@@ -1,3 +1,4 @@
+
 version: "3.8"
 
 services:
@@ -15,9 +16,8 @@ services:
   app-tpfoyer:
     depends_on:
       - mysqldb  # S'assure que MySQL démarre d'abord
-    build:
-      context: .  # Construit l'image depuis le répertoire courant
-      dockerfile: Dockerfile  # Utilise ton Dockerfile
+    image: oussama22444/devops:latest
+    build: ./
     restart: on-failure
     ports:
       - 8089:8089  # Expose le port de ton application
@@ -28,10 +28,6 @@ services:
         "spring.datasource.password" : "",
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
-    volumes:
-      - ./wait-for-mysql.sh:/wait-for-mysql.sh  # Ajoute le script d'attente
-    working_dir: /  # Définit le répertoire de travail à la racine
-    entrypoint: ["sh", "-c", "./wait-for-mysql.sh && java -jar /tp-foyer-5.0.0.jar"]
     stdin_open: true
     tty: true
 
