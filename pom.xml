@@ -5,12 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Parent Spring Boot Starter -->
+    <!-- Parent Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.1.0</version> <!-- Par exemple, utilisez une version stable de Spring Boot -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
+
 
     <groupId>tn.esprit</groupId>
     <artifactId>tp-foyer</artifactId>
@@ -73,6 +75,17 @@
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+        <!-- Spring Boot Actuator for Prometheus -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+
+        </dependency>
+
+
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-core</artifactId>
