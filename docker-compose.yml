@@ -25,6 +25,15 @@ services:
          "spring.datasource.username" : "root",
          "spring.datasource.password" : "",
          "spring.jpa.hibernate.ddl-auto" : "update",
+<<<<<<< HEAD
+=======
+         "management.endpoints.web.exposure.include": "*",
+         "management.endpoint.prometheus.enabled" : "true",
+
+         "management.endpoint.health.show-details": "always",
+         "management.prometheus.metrics.export.enabled": "true",
+         "server.port": "8089",
+>>>>>>> 88b69ef17512388b5879f7290d5c57ad32bfe77b
          
        }'
 
