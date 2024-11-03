@@ -31,7 +31,7 @@ services:
          "management.endpoint.health.show-details": "always",
          "management.prometheus.metrics.export.enabled": "true",
          "server.port": "8089",
-        
+         "server.servlet.context-path": "/tpfoyer"
        }'
 
     stdin_open: true
