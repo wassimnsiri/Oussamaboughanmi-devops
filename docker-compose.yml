@@ -26,10 +26,12 @@ services:
          "spring.datasource.password" : "",
          "spring.jpa.hibernate.ddl-auto" : "update",
          "management.endpoints.web.exposure.include": "*",
+         "management.endpoint.prometheus.enabled" : "true",
+
          "management.endpoint.health.show-details": "always",
          "management.prometheus.metrics.export.enabled": "true",
          "server.port": "8089",
-         "server.servlet.context-path": "/tpfoyer"
+         "server.servlet.context-path": "/pip-doc-app-tpfoyer-1"
        }'
 
     stdin_open: true
