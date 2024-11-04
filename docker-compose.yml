@@ -6,29 +6,28 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=db  # Nom de la base de données
+      - MYSQL_DATABASE=db
     ports:
-      - 3306:3306  # Expose le port MySQL
+      - 3306:3306
     volumes:
-      - db:/var/lib/mysql  # Volume persistant pour MySQL
+      - db:/var/lib/mysql
 
   app-tpfoyer:
     depends_on:
-      - mysqldb  # S'assure que MySQL démarre d'abord
+      - mysqldb
     image: oussama22444/devops:latest
     restart: on-failure
     ports:
-      - 8089:8089  # Expose le port de ton application
+      - 8091:8091  # Ensure this matches the port in your application.properties
     environment:
       SPRING_APPLICATION_JSON: '{
          "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/db?createDatabaseIfNotExist=true",
          "spring.datasource.username" : "root",
          "spring.datasource.password" : "",
-         "spring.jpa.hibernate.ddl-auto" : "update"   
+         "spring.jpa.hibernate.ddl-auto" : "update"
        }'
-
     stdin_open: true
     tty: true
 
 volumes:
-  db:  # Volume persistant pour MySQL
+  db:

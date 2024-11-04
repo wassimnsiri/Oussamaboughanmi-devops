@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TIMEOUT=30  # Set timeout duration (in seconds)
+TIMEOUT=30
 START_TIME=$(date +%s)
 
 until mysql -h mysqldb -u root -e 'SELECT 1'; do
