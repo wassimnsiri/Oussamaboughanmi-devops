@@ -18,9 +18,14 @@ services:
     image: oussama22444/devops:latest
     restart: on-failure
     ports:
-      - 8091:8091
+      - 8091:8091  # Ensure this matches the port in your application.properties
     environment:
-      SPRING_APPLICATION_JSON: "{\"spring.datasource.url\":\"jdbc:mysql://mysqldb:3306/db?createDatabaseIfNotExist=true\",\"spring.datasource.username\":\"root\",\"spring.datasource.password\":\"\",\"spring.jpa.hibernate.ddl-auto\":\"update\"}"
+      SPRING_APPLICATION_JSON: '{
+         "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/db?createDatabaseIfNotExist=true",
+         "spring.datasource.username" : "root",
+         "spring.datasource.password" : "",
+         "spring.jpa.hibernate.ddl-auto" : "update"
+       }'
     stdin_open: true
     tty: true
 
