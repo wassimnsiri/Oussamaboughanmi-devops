@@ -6,8 +6,8 @@ services:
     container_name: mysql
     restart: unless-stopped
     environment:
-      - MYSQL_ROOT_PASSWORD= root
-      - MYSQL_DATABASE= devops
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=devops
     ports:
       - "3306:3306"
     networks:
@@ -25,8 +25,9 @@ services:
       - mysqldb
     networks:
       - myNetwork
+
 networks:
-  - myNetwork:
+  myNetwork:
 
 volumes:
   mysql-data:
