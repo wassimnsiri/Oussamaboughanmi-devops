@@ -3,22 +3,30 @@ version: "3"
 services:
   mysqldb:
     image: mysql:5.7
+    container_name: mysql
     restart: unless-stopped
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=db
+      - MYSQL_ROOT_PASSWORD= root
+      - MYSQL_DATABASE= devops
     ports:
-      - 3306:3306
+      - "3306:3306"
+    networks:
+      - myNetwork
     volumes:
-      - db:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
 
   app-tpfoyer:
     image: oussama22444/devops:latest
     container_name: backend
     restart: on-failure
     ports:
-      - 8091:8091
+      - "8091:8091"
     depends_on:
-     - mysqldb
+      - mysqldb
+    networks:
+      - myNetwork
+networks:
+  - myNetwork:
+
 volumes:
-  db:
+  mysql-data:
